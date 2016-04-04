@@ -1,2 +1,2 @@
 # json
-JSON/JavaScript Object Notation database code
+JSON/JavaScript Object Notation files
