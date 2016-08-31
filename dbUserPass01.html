@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta chaset="utf-8" />
+  <title>JSON/Javascript: Username/Password Database</title>
+  <script>
+  var db={
+   "users":[
+    {"username":"Abe","password":"123"},
+    {"username":"Brain","password":"456"},
+    {"username":"Charlie","password":"789"},
+    {"username":"Dave","password":"012"}
+   ]
+  }
+  </script>
+ </head>
+ <body>
+  <h1>JSON/Javascript: Username,Password Database</h1>
+  <script>
+   for (var i=0;i<db.users.length;i++){ 
+    document.write(db.users[i].username + "," + 
+                   db.users[i].password + "<br>");
+   }
+  </script>
+ </body>
+</html>
