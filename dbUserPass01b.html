@@ -2,33 +2,45 @@
 <html lang="en">
  <head>
   <meta charset="utf-8" />
-  <title>JSON/Javascript: Username/Password Database</title>
+  <title>JSON Database: Username/Password</title>
   <script>
   var db={
    users:[
-    {username:"Abe",password:"123"},
-    {username:"Brian",password:"456"},
+    {username:"Abe",    password:"123"},
+    {username:"Brian",  password:"456"},
     {username:"Charlie",password:"789"},
-    {username:"Dave",password:"012"}
+    {username:"Dave",   password:"012"}
    ]
   }
   </script>
  </head>
  <body>
-  <h1>JSON database: Username/Password (internal web page code)</h1>
-  <table border="3" cellpadding="3" cellspacing="1" bordercolor="black">
-  <tr style="background-color:black; color:white">
+  <table style="border:10px solid red; border-radius:5px;">
+  <tr style="background-color:black;color:white;">
+   <th>&nbsp</th>
+   <th>Number</th>
+   <th>&nbsp</th>
    <th>Username</th>
+   <th>&nbsp;</th>
    <th>Password</th>
+   <th>&nbsp</th>
   </tr>
   <script>
    for (var i=0;i<db.users.length;i++){ 
-    document.write("<tr align='center'>" + 
-                   " <td>" + db.users[i].username + "</td>" + 
-                   " <td>" + db.users[i].password + "</td>" + 
+    document.write("<tr align='center' style='background-color:silver;color:black;font-weight:bold;'>" + 
+                   " <td style='background-color:black;'>&nbsp;</td>" + 
+                   " <td style='background-color:yellow;'>" + (i+1) + "</td>" + 
+                   " <td style='background-color:black;'>&nbsp;</td>" + 
+                   " <td style='background-color:green;color:white;'>" + db.users[i].username + "</td>" + 
+                   " <td style='background-color:black;'>&nbsp;</td>" + 
+                   " <td style='background-color:lime;color:black;font-style:normal'>" + db.users[i].password + "</td>" + 
+                   " <td style='background-color:black;'>&nbsp;</td>" + 
                    "</tr>");
    }
   </script>
+  <tr style="background-color:black;color:white;">
+   <th colspan="7">---JSON Database---</th>
+  </tr>
   </table>
  </body>
 </html>
