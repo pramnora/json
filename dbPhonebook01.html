@@ -13,7 +13,7 @@
      Copyright: Mr. Paul Ramnora./All rights reserved.
 
        Created: 08:06 02/10/2016
-       Updated: 08:07 02/10/2016
+       Updated: 13:57 02/10/2016
 ...Comments section/end-->
  <head><!--head section/start-->
   <meta charset="UTF-8" />
@@ -96,16 +96,17 @@ var divOutput           = document.getElementById("divOutput"),
 //---------------------------------------------------------------------------------
 //*** Find out which button was pressed...
 //---------------------------------------------------------------------------------
-document.getElementById("btnBusiness").onclick = function(){doOutputDisplay("Business");}
-document.getElementById("btnFamily").onclick   = function(){doOutputDisplay("Family");}
-document.getElementById("btnFriends").onclick  = function(){doOutputDisplay("Friend");}
-document.getElementById("btnAll").onclick      = function(){doOutputDisplay("All");}
+document.getElementById("btnBusiness").onclick = function(){doOutputDisplay("Business")};
+document.getElementById("btnFamily").onclick   = function(){doOutputDisplay("Family")};
+document.getElementById("btnFriends").onclick  = function(){doOutputDisplay("Friend")};
+document.getElementById("btnAll").onclick      = function(){doOutputDisplay("All")};
 //---------------------------------------------------------------------------------
 //*** Global functions...
 //---------------------------------------------------------------------------------
 function doOutputDisplay(strCategory){
  intRecordsCounterNo = 0;
  clearOutputDisplay();
+ showTableHeadings();
  for (var intEachRecordNo = 0; intEachRecordNo < myPhonebookObj.records.length; intEachRecordNo ++){
   if (strCategory == "All") { //...display all records...
    showASelectedRecord(intEachRecordNo);
@@ -123,12 +124,22 @@ function doOutputDisplay(strCategory){
 function clearOutputDisplay(){
   divOutput.innerHTML = "";  
 }
+function showTableHeadings(){
+  divOutput.innerHTML +="<center><table border='0' width='75%'>"
+                      + "<tr align='center' style='background-color:black;color:white'>"
+                      + "<th width='25%'>Rec No</th>"
+                      + "<th width='25%'>Cat</th>"
+                      + "<th width='25%'>Name</th>"
+                      + "<th width='25%'>Phone No.</th>"
+                      + "</tr></table></center>"
+}
 function showASelectedRecord(intASelectedRecordNo){
-  divOutput.innerHTML += myPhonebookObj.records[intASelectedRecordNo].recordNo + " - "
-                      + myPhonebookObj.records[intASelectedRecordNo].category + " - " 
-                      + myPhonebookObj.records[intASelectedRecordNo].name + " - "
-                      + myPhonebookObj.records[intASelectedRecordNo].phoneNo
-                      + "<br />";
+  divOutput.innerHTML += "<center><table border='0' width='75%'><tr align='center'>"
+                      + "<td width='25%'>" + myPhonebookObj.records[intASelectedRecordNo].recordNo + "</td>"
+                      + "<td width='25%'>" +  myPhonebookObj.records[intASelectedRecordNo].category + "</td>" 
+                      + "<td width='25%'>" +  myPhonebookObj.records[intASelectedRecordNo].name + "</td>"
+                      + "<td width='25%'>" +  myPhonebookObj.records[intASelectedRecordNo].phoneNo + "</td>"
+                      + "</tr></table></center>"
 }
 function showEOFMessage(){
   divOutput.innerHTML += "<hr />"
