@@ -1,4 +1,3 @@
-
 <DOCTYPE html>
 <html lang="en"><!--html section/start-->
 <!--Comments section/start...
@@ -49,7 +48,7 @@ input#btn1{background-color:silver;
   <!--html code: output section/start-->
   <div id="divOutput"></div>
   <!--html code: output section/end-->
-<!--javascript code/start-->
+  <!--javascript code/start-->
 <script type="text/javascript">
 //---------------------------------------------------------------------------------
 //*** JSON DATA section/start... 
@@ -93,61 +92,33 @@ var myPhonebookObj = {
 var divOutput           = document.getElementById("divOutput"),
     intTotalNoOfRecords = 5,
     intRecordsCounterNo = 0;
+    strCategory         = "";
 //---------------------------------------------------------------------------------
-//*** Actions...
+//*** Find out which button was pressed...
 //---------------------------------------------------------------------------------
-//*** Show Business...
-document.getElementById("btnBusiness").onclick = function(){
- intRecordsCounterNo = 0;
- clearOutputDisplay();
- for (var intEachRecordNo = 0; intEachRecordNo < myPhonebookObj.records.length; intEachRecordNo ++){
-  if (myPhonebookObj.records[intEachRecordNo].category == "Business") {
-   showASelectedRecord(intEachRecordNo);
-   intRecordsCounterNo += 1;
-  }
- }
- showEOFMessage();
-}
-//---------------------------------------------------------------------------------
-//*** Show Family...
-document.getElementById("btnFamily").onclick = function(){
- intRecordsCounterNo = 0;
- clearOutputDisplay();
- for (var intEachRecordNo = 0; intEachRecordNo < myPhonebookObj.records.length; intEachRecordNo ++){
-  if (myPhonebookObj.records[intEachRecordNo].category == "Family") {
-   showASelectedRecord(intEachRecordNo);
-   intRecordsCounterNo += 1;
-  }
- }
- showEOFMessage();
-}
-//---------------------------------------------------------------------------------
-//*** Show Friends...
-document.getElementById("btnFriends").onclick = function(){
- intRecordsCounterNo = 0;
- clearOutputDisplay();
- for (var intEachRecordNo = 0; intEachRecordNo < myPhonebookObj.records.length; intEachRecordNo ++){
-  if (myPhonebookObj.records[intEachRecordNo].category == "Friend") {
-   showASelectedRecord(intEachRecordNo);
-   intRecordsCounterNo += 1;
-  }
- }
- showEOFMessage();
-}
-//---------------------------------------------------------------------------------
-//*** Show ALL...
-document.getElementById("btnAll").onclick = function(){
- intRecordsCounterNo = 0;
- clearOutputDisplay();
- for (var intEachRecordNo = 0; intEachRecordNo < myPhonebookObj.records.length; intEachRecordNo ++){
-  showASelectedRecord(intEachRecordNo);
-  intRecordsCounterNo += 1;
- }
- showEOFMessage();
-}
+document.getElementById("btnBusiness").onclick = function(){doOutputDisplay("Business");}
+document.getElementById("btnFamily").onclick   = function(){doOutputDisplay("Family");}
+document.getElementById("btnFriends").onclick  = function(){doOutputDisplay("Friend");}
+document.getElementById("btnAll").onclick      = function(){doOutputDisplay("All");}
 //---------------------------------------------------------------------------------
 //*** Global functions...
 //---------------------------------------------------------------------------------
+function doOutputDisplay(strCategory){
+ intRecordsCounterNo = 0;
+ clearOutputDisplay();
+ for (var intEachRecordNo = 0; intEachRecordNo < myPhonebookObj.records.length; intEachRecordNo ++){
+  if (strCategory == "All") { //...display all records...
+   showASelectedRecord(intEachRecordNo);
+   intRecordsCounterNo += 1;
+  } else {                    //...display only selected records...
+   if (myPhonebookObj.records[intEachRecordNo].category == strCategory) {
+    showASelectedRecord(intEachRecordNo);
+    intRecordsCounterNo += 1;
+   }
+  }
+ }
+ showEOFMessage();
+}
 //*** Show record...
 function clearOutputDisplay(){
   divOutput.innerHTML = "";  
@@ -169,6 +140,6 @@ function showEOFMessage(){
 }
 //---------------------------------------------------------------------------------
 </script>
-<!--javascript code/end-->
+  <!--javascript code/end-->
  </body><!--body section/end-->
 </html><!--html code/end-->
