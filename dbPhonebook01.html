@@ -1,0 +1,174 @@
+
+<DOCTYPE html>
+<html lang="en"><!--html section/start-->
+<!--Comments section/start...
+       Program: Database Application/Phonebook records
+      Language: Javascript/JSON-JavaScript Object Notation
+      
+      Computer: Desktop PC
+            OS: Windows 10
+        Editor: Notepad  
+
+        Author: Paul Ramnora
+         Email: paul@ramnora.com
+     Copyright: Mr. Paul Ramnora./All rights reserved.
+
+       Created: 08:06 02/10/2016
+       Updated: 08:07 02/10/2016
+...Comments section/end-->
+ <head><!--head section/start-->
+  <meta charset="UTF-8" />
+  <title>JSON Phonebook</title>
+<!--stylesheet code/start-->
+  <style type="text/css">
+body{font-family:arial,verdana,sans-serif;}
+input#btn1{background-color:silver;
+                      color:black;
+                     border:solid 1px black;
+}
+  </style>
+<!--stylesheet code/end-->
+ </head><!--head section/end-->
+ <body><!--body section/start-->
+  <h1>JSON Phonebook</h1><!--html code: title heading text-->
+  <div><!--html code: buttons section/start-->
+   <input id="btnBusiness" type="button" value="Business" />
+   <input id="btnFamily"   type="button" value="Family" />
+   <input id="btnFriends"  type="button" value="Friends" />
+   <input id="btnAll"      type="button" value="Show ALL" />
+  </div><!--html code: buttons section/end-->
+  <hr />
+  <!--html code: record headings/start-->
+  <p>
+   <b>
+    Record No - Category - Name - Phone No	
+   </b>
+  </p>
+  <!--html code: record headings/end-->
+  <hr />
+  <!--html code: output section/start-->
+  <div id="divOutput"></div>
+  <!--html code: output section/end-->
+<!--javascript code/start-->
+<script type="text/javascript">
+//---------------------------------------------------------------------------------
+//*** JSON DATA section/start... 
+var myPhonebookObj = {
+ "records":[
+  {
+   "recordNo" : "1",
+   "category" : "Business",
+   "name"     : "Name 1" , 
+   "phoneNo"  : "01"
+  },
+  {
+   "recordNo" : "2",
+   "category" : "Family",
+   "name"     : "Name 2" ,
+   "phoneNo"  : "02"
+  },
+  {
+   "recordNo" : "3",
+   "category" : "Friend",
+   "name"     : "Name 3" , 
+   "phoneNo"  : "03"
+  },
+  {
+   "recordNo" : "4",
+   "category" : "Friend",
+   "name"     : "Name 4" , 
+   "phoneNo"  : "04"
+  },
+  {
+   "recordNo" : "5",
+   "category" : "Friend",
+   "name"     : "Name 5" , 
+   "phoneNo"  : "05"
+  }
+ ]
+};
+//...JSON DATA section/end ***
+//---------------------------------------------------------------------------------
+//*** Global variables...
+var divOutput           = document.getElementById("divOutput"),
+    intTotalNoOfRecords = 5,
+    intRecordsCounterNo = 0;
+//---------------------------------------------------------------------------------
+//*** Actions...
+//---------------------------------------------------------------------------------
+//*** Show Business...
+document.getElementById("btnBusiness").onclick = function(){
+ intRecordsCounterNo = 0;
+ clearOutputDisplay();
+ for (var intEachRecordNo = 0; intEachRecordNo < myPhonebookObj.records.length; intEachRecordNo ++){
+  if (myPhonebookObj.records[intEachRecordNo].category == "Business") {
+   showASelectedRecord(intEachRecordNo);
+   intRecordsCounterNo += 1;
+  }
+ }
+ showEOFMessage();
+}
+//---------------------------------------------------------------------------------
+//*** Show Family...
+document.getElementById("btnFamily").onclick = function(){
+ intRecordsCounterNo = 0;
+ clearOutputDisplay();
+ for (var intEachRecordNo = 0; intEachRecordNo < myPhonebookObj.records.length; intEachRecordNo ++){
+  if (myPhonebookObj.records[intEachRecordNo].category == "Family") {
+   showASelectedRecord(intEachRecordNo);
+   intRecordsCounterNo += 1;
+  }
+ }
+ showEOFMessage();
+}
+//---------------------------------------------------------------------------------
+//*** Show Friends...
+document.getElementById("btnFriends").onclick = function(){
+ intRecordsCounterNo = 0;
+ clearOutputDisplay();
+ for (var intEachRecordNo = 0; intEachRecordNo < myPhonebookObj.records.length; intEachRecordNo ++){
+  if (myPhonebookObj.records[intEachRecordNo].category == "Friend") {
+   showASelectedRecord(intEachRecordNo);
+   intRecordsCounterNo += 1;
+  }
+ }
+ showEOFMessage();
+}
+//---------------------------------------------------------------------------------
+//*** Show ALL...
+document.getElementById("btnAll").onclick = function(){
+ intRecordsCounterNo = 0;
+ clearOutputDisplay();
+ for (var intEachRecordNo = 0; intEachRecordNo < myPhonebookObj.records.length; intEachRecordNo ++){
+  showASelectedRecord(intEachRecordNo);
+  intRecordsCounterNo += 1;
+ }
+ showEOFMessage();
+}
+//---------------------------------------------------------------------------------
+//*** Global functions...
+//---------------------------------------------------------------------------------
+//*** Show record...
+function clearOutputDisplay(){
+  divOutput.innerHTML = "";  
+}
+function showASelectedRecord(intASelectedRecordNo){
+  divOutput.innerHTML += myPhonebookObj.records[intASelectedRecordNo].recordNo + " - "
+                      + myPhonebookObj.records[intASelectedRecordNo].category + " - " 
+                      + myPhonebookObj.records[intASelectedRecordNo].name + " - "
+                      + myPhonebookObj.records[intASelectedRecordNo].phoneNo
+                      + "<br />";
+}
+function showEOFMessage(){
+  divOutput.innerHTML += "<hr />"
+                      + "-End of file"
+                      + "<hr />"
+                      + "Total records: " + intTotalNoOfRecords 
+                      + "<br />"
+                      + "Number of matches found: " + intRecordsCounterNo
+}
+//---------------------------------------------------------------------------------
+</script>
+<!--javascript code/end-->
+ </body><!--body section/end-->
+</html><!--html code/end-->
