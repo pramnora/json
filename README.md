@@ -1,4 +1,9 @@
 # json
-JSON/JavaScript Object Notation files
+*JSON/JavaScript Object Notation files*
 
-DISCLAIMER: I'm still learning it...?!
+-----
+
+*Links*
+
+MyJSON.com
+http://www.myjson.com
