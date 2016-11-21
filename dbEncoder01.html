@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!--
+  Created: 13:29 21/11/2016
+  Updated: 13:29 21/11/2016
+   Author: Mr. Paul Ramnora
+    Email: pramnora@yahoo.com
+ Computer: Home based Desktop PC/Windows 10/Notepad/Chrome Web browser.
+ -->
+ <head>
+  <meta charset="UTF-8" />
+  <title>JSON Encoding: Text(a-z) to Numbers(01-26)</title>
+  <script>
+  //*** PROGRAM: JSON encoder: Text: (a-z) -> Numbers: (01-26)
+   var plainText = "thisisasecretmessage";
+   var code = {
+             a:"01",
+             b:"02",
+             c:"03",
+             d:"04",
+             e:"05",
+             f:"06",
+             g:"07",
+             h:"08",
+             i:"09",
+             j:10,
+             k:11,
+             l:12,
+             m:13,
+             n:14,
+             o:15,
+             p:16,
+             q:17,
+             r:18,
+             s:19,
+             t:20,
+             u:21,
+             v:22,
+             w:23,
+             x:24,
+             y:25,
+             z:26
+          }   
+   function test(){
+    var out1=document.getElementById("out1");
+    var out2=document.getElementById("out2");
+    out1.innerHTML="<h2>Plain text</h2>" + plainText + "<h2>CipherText</h2>";
+    for (var i=0;i<plainText.length;i++){
+     out1.innerHTML += code[plainText[i]]; 
+     out2.innerHTML += plainText[i] + " = " +  code[plainText[i]] + "<br />"; 
+    }
+   }
+  </script>
+ </head>
+ <body onload="test()">
+  <h1>JSON Encoding: Text(a-z) to Numbers(01-26)</h1>
+  <div id="out1"></div>
+  <br />
+  <div id="out2"></div>
+ </body>
+</html>
