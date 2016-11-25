@@ -31,6 +31,9 @@ https://www.youtube.com/watch?v=rJesac0_Ftw&t=634s
 json tutorial for beginners learn how to program part 1 JavaScript (series)  
 https://www.youtube.com/watch?v=wbB3lVyUvAM&t=112s  
 https://www.youtube.com/watch?v=BSi4iUlzBiU  
+19 Using jQuery to Retrieve JSON via AJAX  
+https://www.youtube.com/watch?v=DUjnjlYER5E  
+
 
 
 
