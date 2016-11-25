@@ -19,5 +19,8 @@ http://www.codepen.io
 https://jsfiddle.net/  
 http://jshint.com/  
 
+**Tutorials**
+
+http://www.w3schools.com/js/js_json_intro.asp  
 
 
