@@ -14,7 +14,10 @@ http://json-validator.com/
 
 **Practice doing Javascript coding online**
 
-http://www.codepen.io
+http://jsbin.com/  
+http://www.codepen.io  
+https://jsfiddle.net/  
+http://jshint.com/  
 
 
 
