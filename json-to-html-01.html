@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <title>Simple JSON to HTML conversion</title>
+ </head>
+ <body>
+  <h1>Simple JSON -&gt; HTML conversion</h1>
+  <p id="output"></p>
+  <script>
+   var myJSON = '{"text":"abc","numbers":123}';
+   var myObj = JSON.parse(myJSON);
+   document.getElementById("output").innerHTML = myObj.text + " " + myObj.numbers;
+  </script>
+ </body>
+</html>

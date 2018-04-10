@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!--NOTE: This 'modified' code example was originally borrowed from...
+ https://www.w3schools.com/js/js_json_intro.asp
+ --> 
+ <head>
+  <meta charset="utf-8">
+  <title>Simple JSON to HTML conversion</title>
+ </head>
+ <body>
+  <h1>Simple JSON -&gt; HTML conversion</h1>
+  <p><b>NASL</b>:<span id="output"></span></p>
+  <script>
+   var myJSON = '{"name":"Paul","age":54,"sex":"M","location":"London" }';
+   var myObj = JSON.parse(myJSON);
+   document.getElementById("output").innerHTML = myObj.name + " " + 
+                                                 myObj.age + " " + 
+                                                 myObj.sex + " " + 
+                                                 myObj.location;
+  </script>
+ </body>
+</html>
