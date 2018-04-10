@@ -2,7 +2,7 @@
 <html lang="en">
  <!--
   Created: 13:29 21/11/2016
-  Updated: 13:29 21/11/2016
+  Updated: 09:42 10/04/2018
    Author: Mr. Paul Ramnora
     Email: pramnora@yahoo.com
  Computer: Home based Desktop PC/Windows 10/Notepad/Chrome Web browser.
@@ -14,7 +14,6 @@
   //*** PROGRAM: JSON encoder: Text: (a-z) -> Numbers: (01-26)
   //       NOTE: Program recogizes only lower case letters: a-z; 
   //             it does NOT recognize either capital case(A-Z)/or, any other punctuation: spaces/symbols/-etc. 
-   var plainText = "thisisasecretmessage";
    var code = {
              a:"01",
              b:"02",
@@ -43,19 +42,33 @@
              y:25,
              z:26
           }   
-   function test(){
-    var out1=document.getElementById("out1");
-    var out2=document.getElementById("out2");
-    out1.innerHTML="<h2>Plain text</h2>" + plainText + "<h2>CipherText</h2>";
-    for (var i=0;i<plainText.length;i++){
+   function doEncode(){
+    //*** variable declarations...
+    var plainText = document.frm1.txt1.value;
+    var out1 = document.getElementById("out1");
+    var out2 = document.getElementById("out2");
+    //*** clear output text for re-run...
+    out1.innerHTML="";
+    out2.innerHTML="";
+    //*** main program...
+    out1.innerHTML = "<h2>Plain text</h2>" + plainText + "<h2>CipherText</h2>";
+    for (var i=0; i < plainText.length; i++){
      out1.innerHTML += code[plainText[i]]; 
      out2.innerHTML += plainText[i] + " = " +  code[plainText[i]] + "<br />"; 
     }
    }
   </script>
  </head>
- <body onload="test()">
+ <body>
   <h1>JSON Encoding: Text(a-z) to Numbers(01-26)</h1>
+  <form name="frm1" method="get" action="javascript:doEncode()"> 
+   Enter plain text(a-z):
+   <br>
+   <input name="txt1" type="text" size="80">
+   <br>
+   <input type="reset" value="Clear">
+   <input name="sub1" type="submit" value="Encode">
+  </form>
   <div id="out1"></div>
   <br />
   <div id="out2"></div>
